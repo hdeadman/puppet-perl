@@ -6,16 +6,37 @@
 
 define perl::cpan(
 	$ensure 	= 'installed',
+        $env = undef,
+        $force = false,
 	$timeout	= 120
 ){
+
+  # Tweak command based on force or not... 
+  if $force == true {
+    $cmd = "cpan -f -i ${name}"
+  } else {
+    $cmd += "cpan -i ${name}"
+  }
+
 	if $ensure == installed {
-	  exec{"cpan_load_${name}":
-	  	path 		=> ['/usr/bin/','/bin'],
-	   	command => "cpan -i ${name}",
-	   	unless 	=> "pmvers ${name}",
-	   	timeout => $timeout,
-	   	require => [Package[$perl::package,$perl::pmtools_package],Exec['configure_cpan']],
-	  }
+          #if $env {
+          exec{"cpan_load_${name}":
+                path            => ['/usr/bin/','/bin'],
+                environment => $env,
+                command => $cmd, 
+                unless  => "pmvers ${name}",
+                timeout => $timeout,
+                require => [Package[$perl::package,$perl::pmtools_package],File['configure_shared_cpan']],
+          }
+          #} else {
+	  #exec{"cpan_load_${name}":
+	 # 	path 		=> ['/usr/bin/','/bin'],
+	 #  	command => "cpan -i ${name}",
+	 #  	unless 	=> "pmvers ${name}",
+	 #  	timeout => $timeout,
+	 #  	require => [Package[$perl::package,$perl::pmtools_package],File['configure_shared_cpan']],
+	  #}
+          #}
 	} elsif $ensure == absent {
 		if $name != "App::pmuninstall"{
 			exec{"cpan_unload_${name}":
@@ -23,7 +44,7 @@ define perl::cpan(
 		   	command => "pm-uninstall ${name}",
 		   	onlyif 	=> "pmvers ${name}",
 		   	timeout => $timeout,
-		   	require => [Package[$perl::package,$perl::pmtools_package],Exec['configure_cpan','install_pmuninstall']],
+		   	require => [Package[$perl::package,$perl::pmtools_package],File['configure_shared_cpan'],Exec['install_pmuninstall']],
 		  }
 		} else {
 			warning("App::pmuninstall is required, and will not be uninstalled on ${fqdn}")
