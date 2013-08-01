@@ -1,0 +1,20 @@
+{
+  "name": "fatmcgav-perl",
+  "version": "0.1.0",
+  "summary": "Perl Module",
+  "author": "fatmcgav",
+  "description": "Module to install the Perl programming language package. \nAlso provides a defined type which can be used to install Perl module using CPAN. \n\nCredit to nesi for the original module code, which I have tweaked and added to. ",
+  "dependencies": [],
+  "types": [],
+  "checksums": {
+    "Modulefile": "9caa8492d9d06953f1e5606a11d69abc",
+    "README.markdown": "e830fc27fa3db6337875faeb32622974",
+    "manifests\\cpan.pp": "403731d729c15e1ca88c4345afb81f3b",
+    "manifests\\init.pp": "36f925b32fd9b227f8e41a44245aa925",
+    "manifests\\params.pp": "26e0b77e8eac50913d90f8517a6c690e",
+    "templates\\MyConfig.pm.erb": "00377debab86f7b2dd6fb59b606c3881"
+  },
+  "source": "git://github.com/fatmcgav/puppet-perl.git",
+  "project_page": "https://github.com/fatmcgav/puppet-perl",
+  "license": "Creative Commons Attribution-ShareAlike 3.0 Unported License"
+}
