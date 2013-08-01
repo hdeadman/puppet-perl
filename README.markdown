@@ -1,12 +1,11 @@
-# puppet-perl
-=============
+# Perl installation and configuration module
 
 This module installs the Perl programming language package, and provides a definition for loading and excluding Perl modules available on CPAN.
 
 * http://www.perl.org/
 * http://www.cpan.org/
 
-Note: Perl modules are hightly variable in their implementation, because "there's more than one way to do it", so some modules will have to be installed some other way. Though this module should give some idea on suitable code patterns that could get it done.
+Note: Perl modules are highly variable in their implementation, because "there's more than one way to do it", so some modules will have to be installed some other way. Though this module should give some idea on suitable code patterns that could get it done.
 
 # Requirements
 

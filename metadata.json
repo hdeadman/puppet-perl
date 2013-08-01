@@ -8,7 +8,7 @@
   "types": [],
   "checksums": {
     "Modulefile": "9caa8492d9d06953f1e5606a11d69abc",
-    "README.markdown": "f78dbd358afab46d4d2d682d37915dc9",
+    "README.markdown": "ef05dfed2680a4dbc657c07753b45edd",
     "manifests\\cpan.pp": "403731d729c15e1ca88c4345afb81f3b",
     "manifests\\init.pp": "36f925b32fd9b227f8e41a44245aa925",
     "manifests\\params.pp": "26e0b77e8eac50913d90f8517a6c690e",
