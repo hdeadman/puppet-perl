@@ -7,6 +7,7 @@
   "dependencies": [],
   "types": [],
   "checksums": {
+    "CHANGELOG": "3567da8c396b67a18c47c43e783739dd",
     "Modulefile": "9caa8492d9d06953f1e5606a11d69abc",
     "README.markdown": "ef05dfed2680a4dbc657c07753b45edd",
     "manifests\\cpan.pp": "403731d729c15e1ca88c4345afb81f3b",
