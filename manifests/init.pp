@@ -44,6 +44,7 @@ class perl (
   $cpan_mirror     = $perl::params::cpan_mirror,
   $perl_package    = $perl::params::perl_package,
   $cpan_package    = $perl::params::cpan_package,
+  $yaml_package    = $perl::params::yaml_package,
   $pmtools_package = $perl::params::pmtools_package) inherits perl::params {
   # Install Perl
   if $perl_version == 'UNSET' {
@@ -77,7 +78,7 @@ class perl (
       command => "cpan -i App::pmuninstall",
       unless  => "perl -MApp::pmuninstall -e 'print \"App::pmuninstall loaded\"'",
       timeout => 600,
-      require => [Package[$perl::perl_package], Package[$perl::cpan_package], File['configure_shared_cpan']],
+      require => [Package[$perl::perl_package], Package[$perl::cpan_package], File['configure_shared_cpan'], Package[$perl::yaml_package]],
     }
 
   }
